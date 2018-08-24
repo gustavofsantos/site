@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import Posts from './components/Posts';
+import { BlogPage } from './components/pages/BlogPage';
+import { HeaderBar } from './components/molecules/HeaderBar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Posts />
+        <HeaderBar />
+        <BlogPage />
       </div>
     );
   }

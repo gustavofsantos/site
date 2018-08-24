@@ -11,7 +11,7 @@ export const Post = props => (
             {props.post.date}
         </Date>
         <Content>
-            <ReactMarkdown source={props.post.content} />
+            <ReactMarkdown source={props.small ? "small content" : props.post.content} />
         </Content>
     </Container>
 );

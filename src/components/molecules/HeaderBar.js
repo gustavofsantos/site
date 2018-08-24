@@ -1,15 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HeaderBar = props => (
     <Bar>
         <Menu>
-            <MenuItem>
-                item 1
-            </MenuItem>
-            <MenuItem>
-                Item 2
-            </MenuItem>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+                <MenuItem>Start</MenuItem>
+            </Link>
+            <Link to="/resume" style={{ textDecoration: 'none' }}>
+                <MenuItem active>Resume</MenuItem>
+            </Link>
+            <Link to="/blog" style={{ textDecoration: 'none' }}>
+                <MenuItem>Blog</MenuItem>
+            </Link>
         </Menu>
     </Bar>
 );
@@ -17,33 +21,38 @@ export const HeaderBar = props => (
 const Bar = styled.nav`
     background-color: #5c5757;
     width: 100%;
-    padding: 1rem;
     box-sizing: border-box;
     display: block;
 `;
 
 const Menu = styled.ul`
-    padding: 20px 10px;
     border-bottom: none;
     display: flex;
     justify-content: flex-end;
     margin: 0;
 `;
 
-const MenuMobile = styled.ul`
-    align-items: center;
-    flex-direction: column;
-    height: 0;
-    justify-content: space-around;
-    padding: 0;
-    transition: height 500ms;
-    overflow: hidden;
-
-`;
-
-const MenuItem = styled.li`
+const MenuItem = styled.p`
+    background: transparent;
     padding: 10px 10px 10px;
     margin-right: 5px;
     font-size: 0.9em;
     border-radius: 5px;
+    color: #AAA;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: #FFF;
+        background: #888;
+    }
+
+    &:visited {
+        color: #FFF;
+        background: #888;
+    }
+
+
 `;
